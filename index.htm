@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Friend Card</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .card {
+        background: #fff;
+        width: 280px;
+        padding: 20px;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .card img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .card h2 {
+        margin: 10px 0 5px;
+      }
+
+      .status {
+        color: #777;
+        margin-bottom: 15px;
+      }
+
+      button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        background: #007bff;
+        color: #fff;
+      }
+
+      button.remove {
+        background: #dc3545;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <img src="https://i.pravatar.cc/150" alt="User" />
+      <h2>John Doe</h2>
+      <p class="status" id="status">Not Friends</p>
+      <button id="friendBtn">Add Friend</button>
+    </div>
+
+    <script>
+      let status = document.getElementById("status");
+      let friendBtn = document.getElementById("friendBtn");
+
+      let check = 0; // moved outside
+
+      friendBtn.addEventListener("click", function () {
+        if (check === 0) {
+          status.innerHTML = "Friends";
+          friendBtn.innerHTML = "Remove Friend";
+          friendBtn.style.backgroundColor = "red";
+          check = 1;
+        } else {
+          status.innerHTML = "Not Friends";
+          friendBtn.innerHTML = "Add Friend";
+          friendBtn.style.backgroundColor = "blue";
+          check = 0;
+        }
+      });
+    </script>
+  </body>
+</html>
